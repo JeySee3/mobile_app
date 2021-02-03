@@ -2,7 +2,7 @@ class Constants {
 
     static final String MASTER_BRANCH = 'master'
 
-    static final String QA_BUILD = 'ZipDebug'
+    static final String QA_BUILD = 'Zip'
     static final String RELEASE_BUILD = 'Release'
 
     static final String INTERNAL_TRACK = 'internal'
@@ -59,7 +59,7 @@ pipeline {
                 echo 'Building'
                 script {
                     VARIANT = getBuildType()
-                    sh "./gradlew -PstorePass=helloworld -Palias=simple -PkeyPass=helloworld bundleZipDebug"
+                    sh "./gradlew -PstorePass=${STORE_PASSWORD} -Pkeystore=${KEYSTORE} -Palias=${KEY_ALIAS} -PkeyPass=${KEY_PASSWORD} bundle${VARIANT}"
                 }
             }
         }
