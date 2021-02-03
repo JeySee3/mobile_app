@@ -32,7 +32,21 @@ def isDeployCandidate() {
 }
 
 pipeline {
+    
+
+     stage ('Checkout') {
+        agent any
+        steps {
+            git(
+                url: 'https://github.com/JeySee3/mobile_app',
+                credentialsId: 'CREDENTIALS-GIT',
+                branch: "master"
+            )
+        }
+    }
+
     agent { dockerfile true }
+
     environment {
         appName = 'jenkins-blog'
 
