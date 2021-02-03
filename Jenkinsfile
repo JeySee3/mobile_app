@@ -59,7 +59,7 @@ pipeline {
                 echo 'Building'
                 script {
                     VARIANT = getBuildType()
-                    sh "./gradlew -PstorePass=${STORE_PASSWORD} -Pkeystore=${KEYSTORE} -Palias=${KEY_ALIAS} -PkeyPass=${KEY_PASSWORD} bundle${VARIANT}"
+                    sh "./gradlew -PstorePass=helloworld -Palias=simple -PkeyPass=helloworld bundleZipDebug"
                 }
             }
         }
