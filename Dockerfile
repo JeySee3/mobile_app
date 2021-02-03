@@ -27,4 +27,6 @@ RUN $ANDROID_HOME/tools/bin/sdkmanager "build-tools;29.0.2" \
     "platforms;android-${ANDROID_VERSION}" \
     "platform-tools"
 
+RUN chmod 777 -R $ANDROID_HOME
+
 CMD ["/bin/bash"]
