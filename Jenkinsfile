@@ -2,7 +2,7 @@ class Constants {
 
     static final String MASTER_BRANCH = 'master'
 
-    static final String QA_BUILD = 'Debug'
+    static final String QA_BUILD = 'ZipDebug'
     static final String RELEASE_BUILD = 'Release'
 
     static final String INTERNAL_TRACK = 'internal'
