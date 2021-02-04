@@ -44,6 +44,15 @@ pipeline {
         STORE_PASSWORD = credentials('storePassword')
     }
     stages {
+
+        stage('Checkout Source') {
+	
+	        steps {
+                git branch: '$BRANCH_NAME', credentialsId:'githubjey', url: 'https://github.com/JeySee3/mobile_app.git'
+            }
+        }
+
+
         stage('Run Tests') {
             steps {
                 echo 'Running Tests'
@@ -61,7 +70,6 @@ pipeline {
                     VARIANT = getBuildType()
                     sh "pwd"
                     sh "./gradlew -PstorePass=${STORE_PASSWORD} -Pkeystore=${KEYSTORE} -Palias=${KEY_ALIAS} -PkeyPass=${KEY_PASSWORD} bundle${VARIANT}"
-                    sh "ls -la"
                 }
             }
         }
